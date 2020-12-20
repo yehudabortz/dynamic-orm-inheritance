@@ -1,6 +1,6 @@
+require 'pry'
 require_relative "../config/environment.rb"
 require 'active_support/inflector'
-
 class InteractiveRecord
 
   def self.table_name
@@ -42,6 +42,7 @@ class InteractiveRecord
       values << "'#{send(col_name)}'" unless send(col_name).nil?
     end
     values.join(", ")
+    binding.pry
   end
 
   def col_names_for_insert
